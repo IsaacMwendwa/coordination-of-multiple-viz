@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <html lang="en">
+
 <head>
     <title>Visualization Programming in d3.js: Coordination of Multiple Visualizations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,59 +11,59 @@
     <!-- Load d3.js -->
     <script src="https://d3js.org/d3.v4.js"></script>
     <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-    
+
     <style>
         /* Remove the navbar's default margin-bottom and rounded borders */
         .navbar {
             margin-bottom: 0;
             border-radius: 0;
         }
-    
+
         /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
         .row.content {
             height: 1200px
         }
-    
+
         /* Set gray background color and 100% height */
         .sidenav {
             padding-top: 20px;
             background-color: #f1f1f1;
             height: 100%;
         }
-    
+
         /* Set black background color, white text and some padding */
         footer {
             background-color: #555;
             color: white;
             padding: 15px;
         }
-    
+
         /* On small screens, set height to 'auto' for sidenav and grid */
         @media screen and (max-width: 767px) {
             .sidenav {
                 height: auto;
                 padding: 15px;
             }
-    
+
             .row.content {
                 height: auto;
             }
         }
-    
+
         #mainWrapper {
             height: auto;
             width: 500px;
         }
-    
+
         #selectionPane {
             position: absolute;
             top: 50px;
-            left: 300px;
+            left: 500px;
             height: 40px;
             font-size: 18px;
         }
-    
-    
+
+
         #histogram {
             position: absolute;
             top: 100px;
@@ -78,9 +79,9 @@
             width: 150px;
             height: 400px;
         }
-    
-    
-    
+
+
+
         #heatmap {
             position: absolute;
             top: 100px;
@@ -88,8 +89,8 @@
             width: 100px;
             height: 400px;
         }
-    
-    
+
+
         #density_plot {
             position: absolute;
             top: 650px;
@@ -105,7 +106,7 @@
             width: 100px;
             height: 200px;
         }
-    
+
         #scatter_plot {
             position: absolute;
             top: 650px;
@@ -114,15 +115,15 @@
             height: 800px;
         }
 
-         #scatter_plot_limits {
+        #scatter_plot_limits {
             position: absolute;
             top: 1050px;
             left: 900px;
             width: 100px;
             height: 200px;
         }
-    
-    
+
+
         .slice {
             font-size: 12pt;
             font-family: Verdana;
@@ -130,7 +131,7 @@
             /*svg specific - instead of color*/
             font-weight: bold;
         }
-    
+
         /*for line chart*/
         .axis path,
         .axis line {
@@ -139,44 +140,44 @@
             shape-rendering: crispEdges;
             /*The shape-rendering property is an SVG attribute, used here to make sure our axis and its tick mark lines are pixel-perfect. */
         }
-    
+
         .line {
             fill: none;
             /*stroke: steelblue;*/
             stroke-width: 3px;
         }
-    
+
         .dot {
             /*fill: white;*/
             /*stroke: steelblue;*/
             stroke-width: 1.5px;
         }
-    
-    
+
+
         .axis text {
             font-family: Verdana;
             font-size: 11px;
         }
-    
+
         .title {
             font-family: Verdana;
             font-size: 15px;
-    
+
         }
-    
+
         .xAxis {
             font-family: verdana;
             font-size: 11px;
             fill: black;
         }
-    
+
         .yAxis {
             font-family: verdana;
             font-size: 11px;
             fill: white;
         }
-    
-    
+
+
         table {
             border-collapse: collapse;
             border: 0px;
@@ -185,24 +186,24 @@
             font-size: 12px;
             text-align: right;
         }
-    
+
         td {
             padding-left: 10px;
         }
-    
+
         #histogramTitle1 {
             font-family: Verdana;
             font-size: 14px;
             fill: lightgrey;
             text-anchor: middle;
         }
-    
+
         #histogramTitle2 {
             font-family: Verdana;
             font-size: 72px;
             fill: grey;
             text-anchor: middle;
-    
+
             /*font-style: italic;*/
         }
     </style>
@@ -211,13 +212,15 @@
 
 <body>
 
-    <div class="w3-sidebar w3-bar-block w3-dark-grey w3-card" style="width:20%">
+    <div class="w3-sidebar w3-bar-block w3-green w3-card" style="width:20%">
         <p><b>Information on Visualizations</b></p>
         <p><b>Dataset:</b> a1-grocerystoresurvey.csv</p>
         <p><b>Coordination of Multiple Visualizations</b></p>
-        <p>The four visualizations in this dashboard are coordinated using a selection button labelled "Gender of Customers"
+        <p>The four visualizations in this dashboard are coordinated using a selection button labelled "Gender of
+            Customers"
         </p>
-        <p>Exploration of the coordination is done by changing the value of the selection button, which filters the data based on the selection, and updates the visualizations</p>
+        <p>Exploration of the coordination is done by changing the value of the selection button, which filters the data
+            based on the selection, and updates the visualizations</p>
         <p></p>
         <p><b>Interactivity of Individual Visualizations</b></p>
         <p><b>Histogram:</b> Changing number of bins</p>
@@ -229,8 +232,8 @@
     <div style="margin-left:30%">
 
         <div class="w3-container">
-            <h3>Coordination of Multiple Visualizations using D3.js</h3>
-            
+            <h3>Visualization Programming: Coordination of Multiple Visualizations using D3.js</h3>
+
             <div id="mainWrapper">
                 <div id="selectionPane">
                     <label for="gender"><strong>Gender of Customers:</strong></label>
@@ -238,7 +241,7 @@
                         <option value="allGender" selected>Customers of All Gender</option>
                     </select>
                 </div>
-            
+
                 <div id="histogram"></div>
                 <div id="histogram_bins">
                     <p>
@@ -246,8 +249,8 @@
                         <input type="number" min="0" max="40" step="2" value="10" id="nBin">
                     </p>
                 </div>
-            
-            
+
+
                 <div id="scatter_plot"></div>
                 <div id="scatter_plot_limits">
                     <!-- Add a radio button -->
@@ -263,7 +266,7 @@
                     <label>Select Chain</label>
                     <select id="selectButton"></select>
                 </div>
-            
+
                 <script type="text/javascript">
 
                     ////////// Functions for Drawing Charts ////////
@@ -812,7 +815,7 @@
 
 
                     //reading data: a1-grocerystoresurvey.csv
-                    d3.csv("https://raw.githubusercontent.com/IsaacMwendwa/dataViz/main/a1-grocerystoresurvey.csv", function (data) {
+                    d3.csv("https://raw.githubusercontent.com/vjajala/dataViz/main/a1-grocerystoresurvey.csv", function (data) {
 
                         // List of groups
                         var allGroup = d3.map(data, function (d) { return (d.Gender) }).keys()
@@ -873,10 +876,10 @@
 
 
                 </script>
-            
-            
+
+
             </div>
-        
+
         </div>
 
     </div>
