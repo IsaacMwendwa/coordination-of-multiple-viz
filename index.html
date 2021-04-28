@@ -76,7 +76,7 @@
             position: absolute;
             top: 500px;
             left: 350px;
-            width: 150px;
+            width: 200px;
             height: 400px;
         }
 
@@ -101,9 +101,9 @@
 
         #density_plot_buttons {
             position: absolute;
-            top: 1050px;
+            top: 1060px;
             left: 400px;
-            width: 100px;
+            width: 200px;
             height: 200px;
         }
 
@@ -117,9 +117,9 @@
 
         #scatter_plot_limits {
             position: absolute;
-            top: 1050px;
-            left: 900px;
-            width: 100px;
+            top: 1060px;
+            left: 1000px;
+            width: 200px;
             height: 200px;
         }
 
@@ -204,7 +204,7 @@
             fill: grey;
             text-anchor: middle;
 
-            /*font-style: italic;*/
+
         }
     </style>
 </head>
@@ -347,7 +347,7 @@
 
                             // set the parameters for the histogram
                             var histogram = d3.histogram()
-                                .value(function (d) { return d.FamilySize; })   // I need to give the vector of value
+                                .value(function (d) { return d.FamilySize; })   // Give the vector of value
                                 .domain(x.domain())  // then the domain of the graphic
                                 .thresholds(x.ticks(nBin)); // then the numbers of bins
 
