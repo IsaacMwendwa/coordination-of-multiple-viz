@@ -9,3 +9,5 @@ The dataset used can be found at: https://github.com/IsaacMwendwa/dataViz-datase
 ## Installation
 No installation of packages is needed, as I directly link to the hosted D3.js script
 
+## Usage
+
