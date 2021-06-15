@@ -20,10 +20,14 @@ Ensure you have Internet connectivity, and double-click the index.html file to o
 ## Contributions
 Contributions are welcome using pull requests. To contribute, follow these steps:
 1. Fork this repository.
-2. Create a branch: `git checkout -b <branch_name>`.
-3. Make your changes and commit them: `git commit -m '<commit_message>'`
-4. Push to the original branch: `git push origin <project_name>/<location>`
-5. Create the pull request.
-
-Alternatively see the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+2. Create a branch: `git checkout -b <branch_name>`
+3. Make your changes to relevant file(s)
+4. Check status of your commits: `git status`
+6. Add and commit file(s) to the repo using:
+    ```
+        git add <file(s)>
+        git commit -m "<message>"
+    ```
+8. Push to the original branch: `git push origin <branch_name`
+9. Create the pull request. See the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
