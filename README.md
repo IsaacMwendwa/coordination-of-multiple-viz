@@ -24,10 +24,8 @@ Contributions are welcome using pull requests. To contribute, follow these steps
 3. Make your changes to relevant file(s)
 4. Check status of your commits: `git status`
 6. Add and commit file(s) to the repo using:
-    ```
-        git add <file(s)>
-        git commit -m "<message>"
-    ```
-8. Push to the original branch: `git push origin <branch_name`
+    `git add <file(s)>`
+    `git commit -m "<message>"`
+8. Push repo to Github: `git push origin <branch_name`
 9. Create the pull request. See the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
