@@ -7,11 +7,16 @@ This repo contains the code for a dashboard of coordinated, interactive visualiz
 The dataset used can be found at: https://github.com/IsaacMwendwa/dataViz-datasets
 
 ## Installation
-No installation of packages is needed, as I directly link to the hosted D3.js script
+1. Navigate to the directory you want to clone this repo to
+2. Clone this repo to your local machine using:
+    ```
+      git clone https://github.com/IsaacMwendwa/coordination-of-multiple-viz
+    ```
+3. No installation of packages is needed, as I directly link to the hosted D3.js script
 
 ## Usage
 Ensure you have Internet connectivity, and double-click the index.html file to open it on a browser, so as to view the visualizations
 
 ## Contributions
-Contributions are welcome using pull requests
+Contributions are welcome using pull requests. Just fork the repo according to GitHub 
 
