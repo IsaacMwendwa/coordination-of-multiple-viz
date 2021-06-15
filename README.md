@@ -29,6 +29,12 @@ Contributions are welcome using pull requests. To contribute, follow these steps
 8. Push repo to Github: `git push origin <branch_name`
 9. Create the pull request. See the GitHub documentation on [creating a pull request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
+## Bug / Feature Request
+
+If you find a bug (the website couldn't handle the query and / or gave undesired results), kindly open an issue [here](/issues/new) by including your search query and the expected result.
+
+If you'd like to request a new function, feel free to do so by opening an issue [here](/issues/new). Please include sample queries and their corresponding results.
+
 ## Authors
 
 * **[Isaac Mwendwa](https://github.com/IsaacMwendwa)**
