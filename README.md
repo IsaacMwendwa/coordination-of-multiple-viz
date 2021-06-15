@@ -9,6 +9,9 @@ The dataset used can be found at [DataViz Datasets](https://github.com/IsaacMwen
 ## Table of Contents
 * [Installation](#Installation)
 * [Usage](#Usage)
+* [Contributions](#Contributions)
+* [Bug/Feature Request)(#Bug/Feature Request)
+* [Authors](#Authors)
 
 ## Installation
 1. Navigate to the directory you want to clone this repo to
