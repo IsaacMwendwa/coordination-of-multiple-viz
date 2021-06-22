@@ -10,7 +10,7 @@ The dataset used can be found at [DataViz Datasets](https://github.com/IsaacMwen
 * [Installation](#Installation)
 * [Usage](#Usage)
 * [Contributions](#Contributions)
-* [Bug/Feature Request](#Bug/Feature Request)
+* [Bug/Feature Request](#Bug--Feature-Request)
 * [Authors](#Authors)
 
 ## Installation
